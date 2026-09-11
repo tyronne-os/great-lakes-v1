@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*keys*
+*vault*
+
+# Generated data and model artifacts
+sql-data-lake-builder/output/*.duckdb
+sql-data-lake-builder/output/*.db
+sql-data-lake-builder/output/nflverse/
+sql-data-lake-builder/venv/
+models/
+*.parquet
+
+# Local tooling
+.vscode/
+.idea/
+.DS_Store
+
+# Nested repository metadata from the source mirror
+goclone/.git/

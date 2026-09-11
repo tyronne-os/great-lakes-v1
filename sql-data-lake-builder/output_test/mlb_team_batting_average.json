@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "MLB Team Batting Average",
+    "extracted_at": "2026-09-07T23:44:45.826102",
+    "row_count": 5,
+    "col_count": 6,
+    "confidence": 0.9200000000000002,
+    "is_sports_data": true
+  },
+  "headers": [
+    "Rank",
+    "Team",
+    "Avg",
+    "Games",
+    "Hits",
+    "At Bats"
+  ],
+  "data": [
+    {
+      "Rank": 1,
+      "Team": NaN,
+      "Avg": 0.275,
+      "Games": 162,
+      "Hits": 1420,
+      "At Bats": 5160
+    },
+    {
+      "Rank": 2,
+      "Team": NaN,
+      "Avg": 0.272,
+      "Games": 162,
+      "Hits": 1405,
+      "At Bats": 5162
+    },
+    {
+      "Rank": 3,
+      "Team": NaN,
+      "Avg": 0.27,
+      "Games": 162,
+      "Hits": 1394,
+      "At Bats": 5168
+    },
+    {
+      "Rank": 4,
+      "Team": NaN,
+      "Avg": 0.268,
+      "Games": 162,
+      "Hits": 1383,
+      "At Bats": 5165
+    },
+    {
+      "Rank": 5,
+      "Team": NaN,
+      "Avg": 0.265,
+      "Games": 162,
+      "Hits": 1368,
+      "At Bats": 5160
+    }
+  ]
+}

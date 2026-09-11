@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  goclone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: goclone:latest
+    volumes:
+      # Mount output directory for cloned websites
+      - ./output:/output
+    working_dir: /app
+    # Example usage:
+    # podman-compose run --rm goclone https://example.com -o output
+    # podman-compose run --rm goclone https://example.com --serve --servePort 5000

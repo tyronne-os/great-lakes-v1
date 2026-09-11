@@ -1,0 +1,136 @@
+# SQL Data Lake Builder Configuration
+
+# Database Configuration
+database:
+  type: postgresql  # Options: postgresql, mysql, sqlite, tsql
+  host: localhost
+  port: 5432
+  name: sports_datalake
+  user: postgres
+  password: ${DB_PASSWORD}  # Use environment variables for secrets
+
+# Extraction Settings
+extraction:
+  # Auto-detect sport type
+  auto_detect_sport: true
+  
+  # Sports to focus on
+  sports:
+    - mlb
+    - nfl
+    - nba
+    - wnba
+    - college_football
+    - ncaa
+  
+  # Data quality thresholds
+  min_confidence: 0.7  # Only extract tables with >70% confidence
+  min_rows: 3          # Minimum rows per table
+  min_columns: 2       # Minimum columns per table
+
+# Output Settings
+output:
+  # Output directory
+  base_dir: ./output
+  
+  # Formats to generate
+  formats:
+    - json
+    - excel
+    - csv
+  
+  # Subdirectories by sport
+  organize_by_sport: true
+  
+  # Subdirectories by date
+  organize_by_date: false
+
+# Schema Generation
+schema:
+  # Database type (overrides database.type if set)
+  db_type: postgresql
+  
+  # Include metadata columns (created_at, updated_at, source)
+  add_metadata: true
+  
+  # Include INSERT statements in SQL
+  include_inserts: false
+  
+  # Include CREATE INDEX statements
+  include_indexes: true
+  
+  # Include CREATE VIEW statements
+  include_views: true
+
+# Data Validation
+validation:
+  # Check data completeness
+  check_completeness: true
+  min_completeness: 0.8  # At least 80% non-null values
+  
+  # Check uniqueness
+  check_uniqueness: true
+  
+  # Check consistency
+  check_consistency: true
+  
+  # Validate data types
+  validate_types: true
+
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: ./logs/extraction.log
+  max_file_size: 10485760  # 10MB
+  backup_count: 5
+
+# API Integration (for future use)
+api:
+  enabled: false
+  host: 0.0.0.0
+  port: 8000
+  debug: false
+
+# ML Pipeline
+ml:
+  enabled: true
+  # Default target column for predictions
+  target_column: null
+  # Features to use
+  feature_selection: auto  # auto, manual, all
+  # Train/test split
+  test_size: 0.2
+  random_state: 42
+
+# Notifications
+notifications:
+  # Send notifications on completion
+  enabled: false
+  email:
+    enabled: false
+    smtp_server: smtp.gmail.com
+    smtp_port: 587
+    from_address: ${NOTIFICATION_EMAIL}
+    to_addresses:
+      - user@example.com
+  
+  # Slack notifications
+  slack:
+    enabled: false
+    webhook_url: ${SLACK_WEBHOOK_URL}
+
+# Caching
+cache:
+  enabled: true
+  directory: ./cache
+  ttl: 3600  # 1 hour
+
+# Performance
+performance:
+  # Number of threads for extraction
+  threads: 4
+  # Batch size for INSERT statements
+  batch_size: 100
+  # Memory limit (MB)
+  max_memory: 512

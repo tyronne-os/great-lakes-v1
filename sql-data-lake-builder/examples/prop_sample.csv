@@ -1,0 +1,3 @@
+player_name,player_id,team,opponent,market,line,projection,over_odds,under_odds,game_id
+Demo QB,1001,AAA,BBB,Passing Yards,250.5,275,-110,-110,G1
+Demo RB,1002,AAA,BBB,Rushing Yards,65.5,58,-105,-115,G1

@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "title": "MLB Team RBIs per Game",
+    "extracted_at": "2026-09-07T23:44:28.956007",
+    "row_count": 3,
+    "col_count": 6,
+    "confidence": 0.8400000000000001,
+    "is_sports_data": true
+  },
+  "headers": [
+    "Rank",
+    "Team",
+    "W-L",
+    "Pass Yards",
+    "PPG",
+    "PA"
+  ],
+  "data": [
+    {
+      "Rank": 1,
+      "Team": NaN,
+      "W-L": NaN,
+      "Pass Yards": 4521,
+      "PPG": 28.5,
+      "PA": 19.2
+    },
+    {
+      "Rank": 2,
+      "Team": NaN,
+      "W-L": NaN,
+      "Pass Yards": 4389,
+      "PPG": 27.3,
+      "PA": 20.1
+    },
+    {
+      "Rank": 3,
+      "Team": NaN,
+      "W-L": NaN,
+      "Pass Yards": 4456,
+      "PPG": 28.1,
+      "PA": 21.2
+    }
+  ]
+}
