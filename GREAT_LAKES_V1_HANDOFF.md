@@ -46,6 +46,12 @@ RotoWire is the market/prop discovery layer. TeamRankings pages define feature
 vocabulary and chart semantics; they are not assumed to be the permanent live
 source.
 
+The canonical storage contract is
+`sql-data-lake-builder/schema/great_lakes_canonical.sql`. It separates bronze
+ingestion lineage, silver normalized sports data, and gold model features and
+predictions. New adapters should map into that contract instead of creating
+source-specific prediction tables.
+
 ## Completed Work
 
 ### Environment
@@ -112,6 +118,19 @@ The next local module is `sql-data-lake-builder/src/nfl_playcalling_tendency.py`
 with schema in `sql-data-lake-builder/schema/nfl_playcalling_tendency.sql`.
 It is intended to derive pass rate, rush rate, red-zone calls, goal-to-go calls,
 third-down calls, target concentration, and secondary-target share from PBP.
+
+### Canonical Lake Contract
+
+The canonical tables are:
+
+- `bronze.ingestion_runs`, `bronze.raw_snapshots`
+- `silver.sports`, `silver.leagues`, `silver.teams`, `silver.players`
+- `silver.games`, `silver.player_team_stints`, `silver.stat_observations`
+- `silver.player_target_logs`, `silver.team_playcalling_tendencies`
+- `silver.touchdown_scoring_logs`, `silver.opponent_touchdown_logs`
+- `silver.official_assignments`, `silver.market_snapshots`
+- `gold.model_features`, `gold.prediction_runs`, `gold.predictions`
+- `gold.prediction_results`
 
 ## Core Modeling Rules
 
