@@ -52,6 +52,11 @@ ingestion lineage, silver normalized sports data, and gold model features and
 predictions. New adapters should map into that contract instead of creating
 source-specific prediction tables.
 
+The complete RotoWire market-ingestion and three-leg parlay plan is in
+`ROTOWIRE_INGESTION_AND_PARLAY_PLAN.md`. It defines the minimal prop payload,
+permitted update cadence, probability contract, correlation guards, and the
+2023-2025 training / 2026 evaluation boundary.
+
 ## Completed Work
 
 ### Environment
@@ -177,7 +182,8 @@ red-zone target share
 3. Build an RB 2+ touchdown probability baseline using a Poisson or negative
    binomial model, then calibrate it out of sample.
 4. Add referee crew joins by `game_id` where the source provides officials.
-5. Add a RotoWire export adapter and snapshot every line with `captured_at`.
+5. Add a RotoWire export adapter and snapshot every line with `captured_at`,
+   following `ROTOWIRE_INGESTION_AND_PARLAY_PLAN.md`.
 6. Backtest 2023–2024, tune on 2025, and reserve 2026 for evaluation.
 7. Add explicit `BET`, `WATCH`, `PASS`, and `DATA_INSUFFICIENT` states.
 8. Build a React dashboard/API surface; avoid Gradio and keep model inference
